@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Canonical Governance Event Structure</title>
+    <meta
+      name="description"
+      content="Canonical governance event structure — Janus docs."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 56px 20px 64px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #cfcfcf;
+        font-size: 0.98rem;
+        text-decoration: none;
+      }
+
+      .back:hover,
+      .back:focus {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 18px;
+        text-align: left;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        margin: 24px 0 10px;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: #cfcfcf;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      ul {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        color: #cfcfcf;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 0.95em;
+        color: #fff;
+        background: #111;
+        padding: 0.15em 0.35em;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/">Back to docs</a>
+      <h1>Canonical Governance Event Structure</h1>
+
+      <p>
+        This document defines the minimal conceptual structure of a governance event within Janus
+        systems.
+      </p>
+      <p>
+        The structure is not a runtime schema. It defines the conceptual fields required for
+        interoperability and deterministic reconstruction.
+      </p>
+
+      <h2>Event identity</h2>
+      <p>Every governance event SHOULD contain a unique identifier.</p>
+      <p>Example field:</p>
+      <p><code>event_id</code></p>
+
+      <h2>Event type</h2>
+      <p>The event type identifies the governance event category.</p>
+      <p>Examples include:</p>
+      <ul>
+        <li><code>OMISSION_DETECTED</code></li>
+        <li><code>HUMAN_DECISION</code></li>
+      </ul>
+      <p>Example field:</p>
+      <p><code>event_type</code></p>
+
+      <h2>Timestamp</h2>
+      <p>The event MUST record the time at which the governance event was produced.</p>
+      <p>Example field:</p>
+      <p><code>timestamp</code></p>
+
+      <h2>Evaluation scope reference</h2>
+      <p>Governance events SHOULD reference the evaluation scope in which the event was produced.</p>
+      <p>Example field:</p>
+      <p><code>scope_ref</code></p>
+
+      <h2>Schema reference</h2>
+      <p>
+        Governance events SHOULD reference the relevant schema context from SCHEMA_LOG when
+        interpretation depends on schema definitions.
+      </p>
+      <p>Example field:</p>
+      <p><code>schema_ref</code></p>
+
+      <h2>Domain references</h2>
+      <p>Governance events SHOULD reference relevant domain records from MANAGEMENT_LOG.</p>
+      <p>Example field:</p>
+      <p><code>management_refs</code></p>
+
+      <h2>Evidence references</h2>
+      <p>Governance events SHOULD reference supporting evidence.</p>
+      <p>Evidence references may include:</p>
+      <ul>
+        <li>E+ artifacts</li>
+        <li>E− omission observations</li>
+      </ul>
+      <p>Example field:</p>
+      <p><code>evidence_refs</code></p>
+
+      <h2>Optional actor reference</h2>
+      <p>
+        If relevant, the governance event MAY reference the responsible actor or authority.
+      </p>
+      <p>Example field:</p>
+      <p><code>actor_ref</code></p>
+
+      <h2>Purpose</h2>
+      <p>This structure allows governance events to remain:</p>
+      <ul>
+        <li>traceable</li>
+        <li>interpretable</li>
+        <li>reconstructable</li>
+      </ul>
+      <p>without constraining implementation technologies.</p>
+    </main>
+  </body>
+</html>

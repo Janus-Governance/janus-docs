@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deterministic Rebuild Model</title>
+    <meta name="description" content="Deterministic rebuild model — Janus docs." />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 56px 20px 64px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: #cfcfcf;
+        font-size: 0.98rem;
+        text-decoration: none;
+      }
+
+      .back:hover,
+      .back:focus {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 18px;
+        text-align: left;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+        margin: 24px 0 10px;
+      }
+
+      p {
+        margin: 0 0 12px;
+        color: #cfcfcf;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        color: #cfcfcf;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 0.95em;
+        color: #fff;
+        background: #111;
+        padding: 0.15em 0.35em;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <a class="back" href="/">Back to docs</a>
+      <h1>Deterministic Rebuild Model</h1>
+
+      <p>
+        This document describes the deterministic rebuild model used in Janus governance systems.
+      </p>
+      <p>
+        The rebuild model explains how governance conclusions can be reconstructed from recorded
+        system history.
+      </p>
+      <p>
+        Deterministic rebuildability ensures that governance outcomes remain observable even after
+        system failures, migrations, or infrastructure changes.
+      </p>
+
+      <h2>Rebuild principle</h2>
+      <p>
+        A governance state should be reconstructable using only the recorded system history and
+        referenced context.
+      </p>
+      <p>Rebuildability relies on:</p>
+      <ul>
+        <li>append-only logs</li>
+        <li>referenced schema definitions</li>
+        <li>referenced evidence artifacts</li>
+      </ul>
+
+      <h2>Required inputs</h2>
+      <p>A deterministic rebuild requires access to:</p>
+      <ul>
+        <li><code>MANAGEMENT_LOG</code></li>
+        <li><code>AUDIT_LOG</code></li>
+        <li>relevant schema definitions from <code>SCHEMA_LOG</code></li>
+        <li>referenced evidence artifacts or omission observations</li>
+      </ul>
+      <p>These inputs represent the observable historical record of the system.</p>
+
+      <h2>Rebuild process</h2>
+      <p>A rebuild process conceptually consists of:</p>
+      <ol>
+        <li>Reading domain activity from <code>MANAGEMENT_LOG</code></li>
+        <li>Interpreting records using schema definitions from <code>SCHEMA_LOG</code></li>
+        <li>Re-evaluating governance evidence when necessary</li>
+        <li>Interpreting governance events recorded in <code>AUDIT_LOG</code></li>
+      </ol>
+      <p>
+        The rebuild process reconstructs the governance interpretation associated with recorded
+        events.
+      </p>
+
+      <h2>Event reference model</h2>
+      <p>
+        Governance events SHOULD reference the domain records, schema context, and evidence
+        artifacts required to interpret the event.
+      </p>
+      <p>This reference model is defined in RFC 0008 (Log Reference Model).</p>
+      <p>
+        These references allow rebuild processes to reproduce the reasoning context associated with
+        governance outcomes.
+      </p>
+
+      <h2>Failure tolerance</h2>
+      <p>
+        Because the system relies on append-only logs and referenced context, governance
+        conclusions remain reconstructable even if operational systems fail.
+      </p>
+      <p>This property allows institutional truth to remain observable.</p>
+
+      <h2>Purpose</h2>
+      <p>The deterministic rebuild model ensures that Janus governance systems preserve:</p>
+      <ul>
+        <li>traceability</li>
+        <li>auditability</li>
+        <li>institutional memory</li>
+      </ul>
+      <p>without constraining implementation technologies.</p>
+    </main>
+  </body>
+</html>
