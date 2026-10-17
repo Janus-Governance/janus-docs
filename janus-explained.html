@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>What is Janus?</title>
     <meta name="description" content="Janus explained — Janus docs." />
+    <link rel="stylesheet" href="styles.css" />
     <style>
       :root {
         color-scheme: dark;
@@ -26,20 +27,6 @@
         padding: 56px 20px 64px;
       }
 
-      .back {
-        display: inline-block;
-        margin-bottom: 18px;
-        color: #cfcfcf;
-        font-size: 0.98rem;
-        text-decoration: none;
-      }
-
-      .back:hover,
-      .back:focus {
-        color: #fff;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
 
       h1 {
         font-size: 2rem;
@@ -146,7 +133,7 @@
 <p>This becomes critical in systems involving automation and AI, where omissions and missing validations can create risk.</p>
 <h2>3. The Janus Approach</h2>
 <p>Key ideas:</p>
-<ul><li>governance events</li><li>evidence model (E+ / E-)</li><li>human authority</li><li>audit writer boundary</li><li>deterministic rebuild</li></ul>
+<ul><li>governance events</li><li>evidence model (E+ / E−)</li><li>human authority</li><li>audit writer boundary</li><li>deterministic rebuild</li></ul>
 <p>Janus evaluates governance conditions rather than application logic.</p>
 <h2>4. What Janus Is Not</h2>
 <p>Janus is not:</p>
@@ -156,7 +143,7 @@
 <p>activity → evaluation → governance event → audit log → rebuildable state</p>
 <h2>6. Reference Runtime</h2>
 <p>runtimes/demo-node/</p>
-<p>It demonstrates the model with a minimal executable implementation.</p>
+<p>It illustrates selected model behavior with a minimal executable implementation. It does not establish conformity and does not redefine Janus Core Lite v0.2.</p>
 <h2>7. Principle</h2>
 <p>Janus governs system evolution. Runtimes execute governance evaluation.</p>
     </main>
